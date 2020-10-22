@@ -23,27 +23,27 @@
   <meta name="description" content="Stay hungry. Stay foolish.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Chenyu&#39;s Blog">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Chenyu&#39;s Blog">
 <meta property="og:description" content="Stay hungry. Stay foolish.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="辰玉">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/archives/">
+<link rel="canonical" href="http://example.com/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Chenyu's Blog</title>
+  <title>Chenyu's Blog</title>
   
 
 
@@ -156,49 +156,83 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/22/kali%E9%85%8D%E7%BD%AEssh/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 1 篇日志。 继续努力。</span>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="辰玉">
+      <meta itemprop="description" content="Stay hungry. Stay foolish.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chenyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/22/kali%E9%85%8D%E7%BD%AEssh/" class="post-title-link" itemprop="url">kali配置ssh</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-22 09:39:23 / 修改时间：12:23:51" itemprop="dateCreated datePublished" datetime="2020-10-22T09:39:23+08:00">2020-10-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+          <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="kali-linux配置ssh"><a href="#kali-linux配置ssh" class="headerlink" title="kali linux配置ssh"></a>kali linux配置ssh</h1><h2 id="1-修改配置文件"><a href="#1-修改配置文件" class="headerlink" title="1.修改配置文件"></a>1.修改配置文件</h2><p><code>sudo vim /etc/ssh/sshd_config</code></p>
+<ul>
+<li>将 <code>#PasswordAuthentication no</code> 的注释去掉，并将 <strong><code>NO</code></strong> 修改为 <strong><code>YES</code></strong> 。</li>
+<li>将 <code>PermitRootLogin xxxxxx</code> 修改为 <code>PermitRootLogin yes</code></li>
+</ul>
+<h2 id="2-启动ssh"><a href="#2-启动ssh" class="headerlink" title="2.启动ssh"></a>2.启动ssh</h2><ol>
+<li><p><code>sudo /etc/init.d/ssh start</code></p>
+</li>
+<li><p>或者<code>service ssh start</code></p>
+</li>
+</ol>
+<h5 id="若之前启动过ssh使用service-ssh-restart确保修改配置生效-实现root连接"><a href="#若之前启动过ssh使用service-ssh-restart确保修改配置生效-实现root连接" class="headerlink" title="若之前启动过ssh使用service ssh restart确保修改配置生效,实现root连接"></a>若之前启动过<strong>ssh</strong>使用<code>service ssh restart</code>确保修改配置生效,实现root连接</h5><ul>
+<li><code>sudo service ssh status</code>查看ssh运行状态，</li>
+<li>如果状态为“active (running)”则表示服务在运行当中</li>
+</ul>
+<h2 id="3-设置开机自动启动"><a href="#3-设置开机自动启动" class="headerlink" title="3.设置开机自动启动"></a>3.设置开机自动启动</h2><p><code>update-rc.d ssh enable</code></p>
+<h2 id="4-实现截图"><a href="#4-实现截图" class="headerlink" title="4.实现截图"></a>4.实现截图</h2><p><img src="https://i.loli.net/2020/10/22/hWqRAKf5Qkeaj6o.png"></p>
+
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-10-22T09:39:23+08:00"
-              content="2020-10-22">
-          10-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/10/22/kali%E9%85%8D%E7%BD%AEssh/" itemprop="url">
-            <span itemprop="name">kali配置ssh</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
+  
+  
+  
 
-
-    </div>
-  </div>
-  
-  
-  
 
   
 
